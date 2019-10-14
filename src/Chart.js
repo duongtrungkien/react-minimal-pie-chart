@@ -75,7 +75,6 @@ function renderLabelItem(option, props, value) {
       return label;
     }
   }
-
   return <DefaultLabel {...props}>{label}</DefaultLabel>;
 }
 
@@ -92,8 +91,8 @@ function renderLabels(data, props) {
     // This object is passed as props to the "label" component
     const labelProps = {
       key: `label-${dataEntry.key || index}`,
-      x: props.cx,
-      y: props.cy,
+      x: props.labelCenter ? props.cx : 48 + Math.cos(halfAngleRadians) * 45,
+      y: props.labelCenter ? props.cy : 48 + Math.sin(halfAngleRadians) * 45,
       dx,
       dy,
       textAnchor: evaluateLabelTextAnchor({
@@ -101,9 +100,10 @@ function renderLabels(data, props) {
         labelPosition: props.labelPosition,
         labelHorizontalShift: dx,
       }),
+      height: props.labelHeight,
+      width: props.labelWidth,
       data: data,
       dataIndex: index,
-      color: dataEntry.color,
       style: props.labelStyle,
     };
 
@@ -229,7 +229,7 @@ export default class ReactMinimalPieChart extends Component {
           viewBox={evaluateViewBoxSize(this.props.ratio, VIEWBOX_SIZE)}
           width="100%"
           height="100%"
-          style={{ display: 'block' }}
+          style={{ display: 'block', position: 'relative' }}
         >
           {renderSegments(extendedData, this.props, this.hideSegments)}
           {this.props.label && renderLabels(extendedData, this.props)}
@@ -275,6 +275,7 @@ ReactMinimalPieChart.propTypes = {
   onMouseOver: PropTypes.func,
   onMouseOut: PropTypes.func,
   onClick: PropTypes.func,
+  labelCenter: PropTypes.bool,
 };
 
 ReactMinimalPieChart.defaultProps = {
@@ -295,4 +296,5 @@ ReactMinimalPieChart.defaultProps = {
   onMouseOver: undefined,
   onMouseOut: undefined,
   onClick: undefined,
+  labelCenter: true,
 };

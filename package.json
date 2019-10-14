@@ -37,7 +37,8 @@
     "prepublish": "npm run test:source && npm run compile && npm run test:bundles",
     "start": "start-storybook -p 9001 -c .storybook",
     "storybook:deploy": "storybook-to-ghpages",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "storybook": "start-storybook"
   },
   "keywords": [
     "react",
@@ -58,6 +59,8 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.4.3",
     "prop-types": "^15.5.7"
   },
   "devDependencies": {

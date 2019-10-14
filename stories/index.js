@@ -5,6 +5,7 @@ import InteractionStory from './InteractionStory';
 import GradientStory from './GradientStory';
 import LoadingIndicatorStory from './LoadingIndicatorStory';
 import PartialLoadingIndicatorStory from './PartialLoadingIndicatorStory';
+import ThreeDRotation from '@material-ui/icons/ThreeDRotation';
 
 const dataMock = [
   { title: 'One', value: 10, color: '#E38627' },
@@ -123,10 +124,20 @@ storiesOf('Labels', module)
   .add('percentage', () => (
     <PieChart
       data={dataMock}
-      label={({ data, dataIndex }) =>
-        Math.round(data[dataIndex].percentage) + '%'
-      }
-      labelStyle={defaultLabelStyle}
+      label={props => {
+        return (
+          <ThreeDRotation
+            style={{ color: '#000' }}
+            {...props}
+            height={5}
+            width={5}
+          />
+        );
+      }}
+      labelStyle={{ position: 'absolute' }}
+      lineWidth={20}
+      labelPosition={90}
+      labelCenter={false}
     />
   ));
 
