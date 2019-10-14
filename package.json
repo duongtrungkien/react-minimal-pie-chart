@@ -1,6 +1,6 @@
 {
-  "name": "react-minimal-pie-chart",
-  "version": "5.0.1",
+  "name": "kien-react-minimal-pie-chart",
+  "version": "5.0.2",
   "description": "Lightweight but versatile SVG pie/donut charts for React",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -131,5 +131,12 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/toomuchdesign/react-minimal-pie-chart/issues"
+  },
+  "homepage": "https://github.com/toomuchdesign/react-minimal-pie-chart#readme",
+  "directories": {
+    "lib": "lib"
   }
 }

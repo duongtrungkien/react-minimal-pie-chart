@@ -91,8 +91,12 @@ function renderLabels(data, props) {
     // This object is passed as props to the "label" component
     const labelProps = {
       key: `label-${dataEntry.key || index}`,
-      x: props.labelCenter ? props.cx : 48 + Math.cos(halfAngleRadians) * 45,
-      y: props.labelCenter ? props.cy : 48 + Math.sin(halfAngleRadians) * 45,
+      x: props.labelCenter
+        ? props.cx
+        : 47.5 + Math.cos(halfAngleRadians) * labelPosition,
+      y: props.labelCenter
+        ? props.cy
+        : 47.5 + Math.sin(halfAngleRadians) * labelPosition,
       dx,
       dy,
       textAnchor: evaluateLabelTextAnchor({
