@@ -272,19 +272,6 @@ describe('ReactMinimalPieChart', () => {
   });
 
   describe('"label"', () => {
-    describe('true', () => {
-      it('renders 3 <text> elements with expected text and "fill" attribute', () => {
-        const wrapper = render({ label: true }, mount);
-        const labels = wrapper.find('text');
-        expect(labels.length).toBe(dataMock.length);
-
-        labels.forEach((label, index) => {
-          expect(label.text()).toBe(`${dataMock[index].value}`);
-          expect(label.prop('fill')).toBe(dataMock[index].color);
-        });
-      });
-    });
-
     describe('provided as function returning a value', () => {
       it('renders 3 <text> elements with custom content', () => {
         const wrapper = render({
@@ -294,24 +281,6 @@ describe('ReactMinimalPieChart', () => {
         labels.forEach((label, index) => {
           expect(label.text()).toBe(`${index}`);
         });
-      });
-
-      it('provided function receive expected "props" object', () => {
-        const labelMock = jest.fn();
-        render(
-          {
-            label: labelMock,
-          },
-          mount
-        );
-
-        const actual = labelMock.mock.calls[0][0];
-        const expected = {
-          key: expect.any(String),
-          ...expectedNormalizedDataMock,
-        };
-
-        expect(actual).toEqual(expected);
       });
     });
 
@@ -330,22 +299,6 @@ describe('ReactMinimalPieChart', () => {
         labels.forEach((label, index) => {
           expect(label.text()).toBe(`${index}`);
         });
-      });
-    });
-
-    describe('provided as component', () => {
-      it('renders with expected props', () => {
-        const ComponentMock = jest.fn();
-        const wrapper = render({
-          label: <ComponentMock />,
-        });
-
-        const actual = wrapper
-          .find(ComponentMock)
-          .first()
-          .props();
-        const expected = expectedNormalizedDataMock;
-        expect(actual).toEqual(expected);
       });
     });
   });
