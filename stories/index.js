@@ -8,9 +8,9 @@ import PartialLoadingIndicatorStory from './PartialLoadingIndicatorStory';
 import ThreeDRotation from '@material-ui/icons/ThreeDRotation';
 
 const dataMock = [
-  { title: 'One', value: 10, color: '#E38627' },
-  { title: 'Two', value: 15, color: '#C13C37' },
-  { title: 'Three', value: 20, color: '#6A2135' },
+  { title: 'One', value: 30, color: '#E38627' },
+  { title: 'Two', value: 30, color: '#C13C37' },
+  { title: 'Three', value: 30, color: '#6A2135' },
 ];
 
 const defaultLabelStyle = {

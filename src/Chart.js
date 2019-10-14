@@ -93,10 +93,10 @@ function renderLabels(data, props) {
       key: `label-${dataEntry.key || index}`,
       x: props.labelCenter
         ? props.cx
-        : 47.5 + Math.cos(halfAngleRadians) * labelPosition,
+        : 47 + Math.cos(halfAngleRadians) * labelPosition,
       y: props.labelCenter
         ? props.cy
-        : 47.5 + Math.sin(halfAngleRadians) * labelPosition,
+        : 47 + Math.sin(halfAngleRadians) * labelPosition,
       dx,
       dy,
       textAnchor: evaluateLabelTextAnchor({
