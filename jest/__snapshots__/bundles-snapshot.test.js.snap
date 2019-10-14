@@ -236,7 +236,7 @@ exports[`Dist bundle is unchanged 1`] = `
     }
 
     // Merge CSS transition necessary for chart animation with the ones provided by \\"segmentsStyle\\"
-    var transition = [\\"stroke-dashoffset \\" + duration + \\"ms \\" + easing, furtherStyles.transition].filter(Boolean).join(',');
+    var transition = [\\"stroke-dashoffset \\" + duration + \\"ms \\" + easing, furtherStyles.transition].filter(Boolean).join(\\",\\");
     return {
       transition: transition
     };
@@ -249,7 +249,7 @@ exports[`Dist bundle is unchanged 1`] = `
 
     var label = value;
 
-    if (typeof option === 'function') {
+    if (typeof option === \\"function\\") {
       label = option(props);
 
       if (React__default.isValidElement(label)) {
@@ -271,8 +271,8 @@ exports[`Dist bundle is unchanged 1`] = `
 
       var labelProps = {
         key: \\"label-\\" + (dataEntry.key || index),
-        x: props.labelCenter ? props.cx : 48 + Math.cos(halfAngleRadians) * 45,
-        y: props.labelCenter ? props.cy : 48 + Math.sin(halfAngleRadians) * 45,
+        x: props.labelCenter ? props.cx : 47.5 + Math.cos(halfAngleRadians) * labelPosition,
+        y: props.labelCenter ? props.cy : 47.5 + Math.sin(halfAngleRadians) * labelPosition,
         dx: dx,
         dy: dy,
         textAnchor: evaluateLabelTextAnchor({
@@ -302,7 +302,7 @@ exports[`Dist bundle is unchanged 1`] = `
 
     if (hide === true) {
       reveal = 0;
-    } else if (typeof props.reveal === 'number') {
+    } else if (typeof props.reveal === \\"number\\") {
       reveal = props.reveal;
     } else if (hide === false) {
       reveal = 100;
@@ -322,7 +322,7 @@ exports[`Dist bundle is unchanged 1`] = `
         title: dataEntry.title,
         style: Object.assign({}, style, dataEntry.style),
         stroke: dataEntry.color,
-        strokeLinecap: props.rounded ? 'round' : undefined,
+        strokeLinecap: props.rounded ? \\"round\\" : undefined,
         fill: \\"none\\",
         onMouseOver: props.onMouseOver && function (e) {
           return props.onMouseOver(e, props.data, index);
@@ -346,7 +346,7 @@ exports[`Dist bundle is unchanged 1`] = `
         radius: props.radius,
         lineWidth: extractPercentage(props.radius, props.lineWidth),
         stroke: props.background,
-        strokeLinecap: props.rounded ? 'round' : undefined,
+        strokeLinecap: props.rounded ? \\"round\\" : undefined,
         fill: \\"none\\"
       }));
     }
@@ -417,15 +417,15 @@ exports[`Dist bundle is unchanged 1`] = `
         width: \\"100%\\",
         height: \\"100%\\",
         style: {
-          display: 'block',
-          position: 'relative'
+          display: \\"block\\",
+          position: \\"relative\\"
         }
       }, renderSegments(extendedData, this.props, this.hideSegments), this.props.label && renderLabels(extendedData, this.props), this.props.injectSvg && this.props.injectSvg()), this.props.children);
     };
 
     return ReactMinimalPieChart;
   }(React.Component);
-  ReactMinimalPieChart.displayName = 'ReactMinimalPieChart';
+  ReactMinimalPieChart.displayName = \\"ReactMinimalPieChart\\";
   ReactMinimalPieChart.propTypes = {
     data: dataPropType,
     cx: PropTypes.number,
@@ -468,7 +468,7 @@ exports[`Dist bundle is unchanged 1`] = `
     rounded: false,
     animate: false,
     animationDuration: 500,
-    animationEasing: 'ease-out',
+    animationEasing: \\"ease-out\\",
     label: false,
     labelPosition: 50,
     onMouseOver: undefined,
